@@ -1,8 +1,10 @@
+import Header from "@/components/Header";
+
 type Props = {
     children: React.ReactNode;
 }
 
-const layout = ({ children }: Props) => {
+const Layout = ({ children }: Props) => {
   return (
     <div className='flex flex-col min-h-screen'>
         <Header />
@@ -13,4 +15,4 @@ const layout = ({ children }: Props) => {
 };
 
 
-export default layout
+export default Layout
