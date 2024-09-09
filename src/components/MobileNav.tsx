@@ -10,7 +10,7 @@ export default function MobileNav() {
         <SheetTrigger>
             <Menu className="text-red-500" />
         </SheetTrigger>
-        <SheetContent>
+        <SheetContent className="space-y-2">
             <SheetTitle>
                 <span> Welcome to Gustat!</span>
             </SheetTitle>
