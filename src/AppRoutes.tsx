@@ -1,5 +1,5 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import Layout from "./layouts/Layout.tsx";
+import Layout from "./layouts/layout";
 
 const AppRoutes = () => {
     return(
