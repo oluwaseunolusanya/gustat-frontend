@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import MobileNav from "./MobileNav";
 
 export default function Header() {
   return (
@@ -10,6 +11,9 @@ export default function Header() {
             >
                 Gustat
             </Link>
+            <div>
+              <MobileNav />
+            </div>
         </div>
     </div>
   )
