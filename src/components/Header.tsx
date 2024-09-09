@@ -11,7 +11,7 @@ export default function Header() {
             >
                 Gustat
             </Link>
-            <div>
+            <div className="md:hidden">
               <MobileNav />
             </div>
         </div>
