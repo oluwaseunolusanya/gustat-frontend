@@ -1,35 +1,40 @@
 import React from "react";
 import { AppState, Auth0Provider, User } from "@auth0/auth0-react";
 
-
+// Define the Props type, indicating that this component accepts children
 type Props = {
     children: React.ReactNode;
 };
 
+// Main component definition
 const Auth0ProviderWithNavigate = ({ children }: Props) => {
+    // Retrieve environment variables for Auth0 configuration
     const domain = import.meta.env.VITE_AUTH0_DOMAIN;
     const clientId = import.meta.env.VITE_AUTH0_CLIENTID;
     const redirectUri = import.meta.env.VITE_AUTH0_CALLBACK_URL;
 
-    if(!domain || !clientId || !redirectUri){
-        throw new Error("Unable to initialise auth0");
-    };
+    // Check if for missing required Auth0 settings
+    if (!domain || !clientId || !redirectUri) {
+        throw new Error("Unable to initialise auth0"); 
+    }
 
-    // Callback function that stores the state of the application user was on before redirection to login
+    // Callback function to handle what happens after Auth0 redirects back to the app post-login
     const onRedirectCallback = (appState?: AppState, user?: User) => {
-        console.log("USER",user);
+        // Log the user information (if available) to the console for debugging or further processing
+        console.log("USER", user);
     };
 
+    // Render the Auth0Provider component, passing the domain, clientId, and redirect URI
     return (
-        <Auth0Provider 
-            domain={domain} 
+        <Auth0Provider
+            domain={domain}
             clientId={clientId}
             authorizationParams={{
-                redirect_uri: redirectUri,
+                redirect_uri: redirectUri, // Redirect users back to the specified URL after authentication
             }}
-            onRedirectCallback={onRedirectCallback}
+            onRedirectCallback={onRedirectCallback} // Handle actions after successful login and redirection
         >
-            {children}
+            {children} {/* Render any child components passed to this wrapper */}
         </Auth0Provider>
     );
 };
