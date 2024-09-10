@@ -17,7 +17,7 @@ const Auth0ProviderWithNavigate = ({ children }: Props) => {
     // Callback function that stores the state of the application user was on before redirection to login
     const onRedirectCallback = (appState?: AppState, user?: User) => {
         console.log("USER",user);
-    }
+    };
 
     return (
         <Auth0Provider 
@@ -30,7 +30,7 @@ const Auth0ProviderWithNavigate = ({ children }: Props) => {
         >
             {children}
         </Auth0Provider>
-    )
-}
+    );
+};
 
 export default Auth0ProviderWithNavigate;
