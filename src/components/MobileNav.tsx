@@ -26,7 +26,7 @@ export default function MobileNav() {
                 )}
             </SheetTitle>
             <Separator />
-            <SheetDescription className="flex">
+            <SheetDescription className="flex flex-col gap-4">
                 {isAuthenticated ? (
                     <MobileNavLinks />
                 )  : (
