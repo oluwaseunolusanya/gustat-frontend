@@ -14,11 +14,11 @@ const UsernameMenu = () => {
         </DropdownMenuTrigger>
         <DropdownMenuContent>
             <DropdownMenuItem>
-                <Link
+                <Link 
                     to="/user-profile" 
                     className="font-bold hover:text-red-800"
                 >
-                    User Profile
+                   User Profile
                 </Link>
             </DropdownMenuItem>
             <Separator />
