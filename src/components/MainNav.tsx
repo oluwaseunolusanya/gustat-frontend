@@ -3,16 +3,23 @@ import { Button } from "./ui/button";
 
 const MainNav = () => {
   // Create a variable to hook into auth0 provider.
-  const { loginWithRedirect } = useAuth0();
+  const { loginWithRedirect, isAuthenticated } = useAuth0();
 
   return (
-    <Button 
+    <span className="flex space-x-2 items center">
+      {isAuthenticated ? (
+        <UsernameMenu /> 
+      ) : (
+        <Button 
         variant="ghost" 
         className="font-bold hover:text-red-800 hover:bg-white"
         onClick={ async () => await loginWithRedirect() } 
-    >
-        Log in
-    </Button>
+        >
+          Log in
+        </Button>
+      )}
+    </span>
+    
   )
 }
 
