@@ -7,18 +7,19 @@ type CreateUserRequest = {
     email: string;
 };
 
+// Create hook to be used my component to call endpoint
 export const useCreateMyUser = () => {
-    const createMyUserRequest = async (User: CreateUserRequest) => {
+    const createMyUserRequest = async (user: CreateUserRequest) => {
         const response = await fetch(`${API_BASE_URL}/api/my/user`, {
             method: "POST",
             headers: {
-                "Content-Type": "application.json",
+                "Content-Type": "application/json",
             },
             body: JSON.stringify(user),
         });
 
         if(!response.ok){
-            throw new Error("Failed to create user request");
+            throw new Error("Failed to create user");
         }
     };
 
