@@ -23,8 +23,6 @@ const Auth0ProviderWithNavigate = ({ children }: Props) => {
 
     // Callback function to handle what happens after Auth0 redirects back to the app post-login
     const onRedirectCallback = (appState?: AppState, user?: User) => {
-        // Log the user information (if available) to the console for debugging or further processing
-        // console.log("USER", user);
         if(user?.sub && user?.email){
             createUser({auth0Id: user.sub, email: user.email});
         }
