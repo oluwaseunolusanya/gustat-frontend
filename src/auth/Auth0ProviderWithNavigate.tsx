@@ -1,6 +1,7 @@
 import React from "react";
 import { AppState, Auth0Provider, User } from "@auth0/auth0-react";
 import { useCreateMyUser } from "@/api/MyUserApi";
+import { useNavigate } from "react-router-dom";
 
 // Define the Props type, indicating that this component accepts children
 type Props = {
@@ -9,7 +10,7 @@ type Props = {
 
 // Main component definition
 const Auth0ProviderWithNavigate = ({ children }: Props) => {
-    
+    const navigate = useNavigate();   
 
     // Retrieve environment variables for Auth0 configuration
     const domain = import.meta.env.VITE_AUTH0_DOMAIN;
@@ -23,7 +24,7 @@ const Auth0ProviderWithNavigate = ({ children }: Props) => {
 
     // Callback function to handle what happens after Auth0 redirects back to the app post-login
     const onRedirectCallback = (appState?: AppState, user?: User) => {
-        
+        navigate("/auth-callback");
     };
 
     // Render the Auth0Provider component, passing the domain, clientId, and redirect URI
