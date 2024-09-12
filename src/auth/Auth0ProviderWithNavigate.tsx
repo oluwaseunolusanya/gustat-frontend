@@ -9,7 +9,7 @@ type Props = {
 
 // Main component definition
 const Auth0ProviderWithNavigate = ({ children }: Props) => {
-    const { createUser,  } = useCreateMyUser();
+    
 
     // Retrieve environment variables for Auth0 configuration
     const domain = import.meta.env.VITE_AUTH0_DOMAIN;
@@ -23,9 +23,7 @@ const Auth0ProviderWithNavigate = ({ children }: Props) => {
 
     // Callback function to handle what happens after Auth0 redirects back to the app post-login
     const onRedirectCallback = (appState?: AppState, user?: User) => {
-        if(user?.sub && user?.email){
-            createUser({auth0Id: user.sub, email: user.email});
-        }
+        
     };
 
     // Render the Auth0Provider component, passing the domain, clientId, and redirect URI
