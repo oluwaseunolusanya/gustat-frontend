@@ -1,16 +1,17 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel } from "@/components/ui/form";
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import LoadingButton from "@/components/LoadingButton";
+import { Button } from "@/components/ui/button";
 
 const formSchema = z.object({
     email: z.string().optional(),
     name: z.string().min(1, "name is required"),
     addressLine1: z.string().min(1, "Address Line 1 is required"),
     city: z.string().min(1, "City is required"),
-    Country: z.string().min(1, "Country is required"),
+    country: z.string().min(1, "Country is required"),
 });
 
 type UserFormData = z.infer<typeof formSchema>;
@@ -29,7 +30,7 @@ const UserProfileForm = ({ onSave, isLoading }:props) => {
         <Form {...form}>
             <form 
                 onSubmit={form.handleSubmit(onSave)} 
-                className="space-y-4 bg-gray-50 rounded-lg md:p-10"
+                className="space-y-4 bg-gray-100 rounded-lg md:p-10"
             >
                 <div>
                     <h2 className="text-2xl font-bold">User Profile Form</h2>
@@ -56,8 +57,9 @@ const UserProfileForm = ({ onSave, isLoading }:props) => {
                         <FormItem>
                             <FormLabel>Name</FormLabel>
                             <FormControl>
-                                <Input {...field} disabled className="bg-white" />
+                                <Input {...field} className="bg-white" />
                             </FormControl>
+                            <FormMessage />
                         </FormItem>
                     )}
                 />
@@ -67,11 +69,12 @@ const UserProfileForm = ({ onSave, isLoading }:props) => {
                         control={form.control} 
                         name="addressLine1" 
                         render={({field}) => (
-                            <FormItem>
+                            <FormItem className="flex-1">
                                 <FormLabel>Address Line 1</FormLabel>
                                 <FormControl>
-                                    <Input {...field} disabled className="bg-white" />
+                                    <Input {...field} className="bg-white" />
                                 </FormControl>
+                                <FormMessage />
                             </FormItem>
                         )} 
                     />
@@ -80,11 +83,12 @@ const UserProfileForm = ({ onSave, isLoading }:props) => {
                         control={form.control} 
                         name="city" 
                         render={({field}) => (
-                            <FormItem>
+                            <FormItem className="flex-1">
                                 <FormLabel>City</FormLabel>
                                 <FormControl>
-                                    <Input {...field} disabled className="bg-white" />
+                                    <Input {...field} className="bg-white" />
                                 </FormControl>
+                                <FormMessage />
                             </FormItem>
                         )} 
                     />
@@ -93,11 +97,12 @@ const UserProfileForm = ({ onSave, isLoading }:props) => {
                         control={form.control} 
                         name="country" 
                         render={({field}) => (
-                            <FormItem>
+                            <FormItem className="flex-1">
                                 <FormLabel>Country</FormLabel>
                                 <FormControl>
-                                    <Input {...field} disabled className="bg-white" />
+                                    <Input {...field} className="bg-white" />
                                 </FormControl>
+                                <FormMessage />
                             </FormItem>
                         )} 
                     />
