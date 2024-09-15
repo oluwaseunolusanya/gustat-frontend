@@ -13,7 +13,7 @@ const Auth0ProviderWithNavigate = ({ children }: Props) => {
 
     // Retrieve environment variables for Auth0 configuration
     const domain = import.meta.env.VITE_AUTH0_DOMAIN;
-    const clientId = import.meta.env.VITE_AUTH0_CLIENTID;
+    const clientId = import.meta.env.VITE_AUTH0_CLIENT_ID;
     const redirectUri = import.meta.env.VITE_AUTH0_CALLBACK_URL;
     const audience = import.meta.env.VITE_AUTH0_AUDIENCE;
 
