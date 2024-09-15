@@ -3,6 +3,7 @@ import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import LoadingButton from "@/components/LoadingButton";
 
 const formSchema = z.object({
     email: z.string().optional(),
@@ -101,6 +102,14 @@ const UserProfileForm = ({ onSave, isLoading }:props) => {
                         )} 
                     />
                 </div>
+                
+                {isLoading ?(
+                    <LoadingButton />
+                ) : (
+                    <Button type="submit" className="bg-red-800">
+                        Submit
+                    </Button>
+                )}
             </form>
         </Form>
     )
