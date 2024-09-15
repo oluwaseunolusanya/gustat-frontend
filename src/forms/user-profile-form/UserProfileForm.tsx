@@ -1,4 +1,7 @@
+import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import { useForm } from "react-hook-form";
+import { Form } from "@/components/ui/form";
 
 const formSchema = z.object({
     email: z.string().optional(),
@@ -9,3 +12,22 @@ const formSchema = z.object({
 });
 
 type UserFormData = z.infer<typeof formSchema>;
+
+type props = {
+    onSave: (userProfileData: UserFormData) => void;
+    isLoading: boolean;
+};
+
+const UserProfileForm = ({ onSave, isLoading }:props) => {
+    const form = useForm<UserFormData>({
+        resolver: zodResolver(formSchema),
+    });
+
+    return (
+        <Form {...form}>
+            
+        </Form>
+    )
+}
+
+export default UserProfileForm;
