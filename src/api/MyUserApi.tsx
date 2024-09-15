@@ -80,4 +80,6 @@ export const useUpdateMyUser = () => {
         error, 
         reset 
     } = useMutation(updateMyUserRequest);
+
+    return { updateUser, isLoading };
 };
