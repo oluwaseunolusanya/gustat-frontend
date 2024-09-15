@@ -14,7 +14,14 @@ const AppRoutes = () => {
                     </Layout>}
             />
             <Route path="/auth-callback" element={<AuthCallbackPage />} />
-            <Route path="/user-profile" element={<span>USER PROFILE PAGE</span>} />
+            <Route 
+                path="/user-profile" 
+                element={
+                    <Layout>
+                        <UserProfilePage />
+                    </Layout>
+                } 
+            />
             <Route path="*" element={<Navigate to="/" />} />
         </Routes>
     );
