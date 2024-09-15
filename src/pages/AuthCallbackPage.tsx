@@ -1,6 +1,5 @@
 import { useCreateMyUser } from "@/api/MyUserApi";
 import { useAuth0 } from "@auth0/auth0-react"
-// import { Flag } from "lucide-react";
 import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
