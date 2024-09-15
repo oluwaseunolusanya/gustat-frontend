@@ -71,4 +71,13 @@ export const useUpdateMyUser = () => {
         return response.json();
 
     };
+
+    const { 
+        mutateAsync: updateUser, 
+        isLoading, 
+        isSucces, 
+        isError, 
+        error, 
+        reset 
+    } = useMutation(updateMyUserRequest);
 };
