@@ -1,4 +1,6 @@
 // Import Zod for schema validation
+import { Form } from "@/components/ui/form";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 
 // Define schema for form validation
@@ -22,6 +24,8 @@ const formSchema = z.object({
     imageFile: z.instanceof(File, { message: "Image is required" }) 
 });
 
+type restaurantFormData = z.infer<typeof formSchema>;
+
 // Type definition for the component's props
 type Props = {
     onSave: (restaurantFormData: FormData) => void;  // Save handler function
@@ -30,7 +34,29 @@ type Props = {
 
 // Component for managing the restaurant form
 const ManageRestaurantForm = ({ onSave, isLoading }: Props) => {
-  return ;
+  const form = useForm<restaurantFormData>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+        cuisines: [],
+        menuItems: [{ name: "", price: 0 }],
+    },
+  });
+
+  const onSubmit = (formDataJson: restaurantFormData) => {
+    // TODO - convert formDataJson to a new FormData object
+  };
+
+  return(
+    <Form {...form}>
+        <form 
+            onSubmit={form.handleSubmit(onSubmit)}
+            className="space-y-8 bg-gray-100 p-10 rounded-lg"
+        >
+        
+        </form>        
+    </Form>
+  )
+
 };
 
 export default ManageRestaurantForm;
