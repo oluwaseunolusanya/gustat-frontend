@@ -52,7 +52,7 @@ const ManageRestaurantForm = ({ onSave, isLoading }: Props) => {
             onSubmit={form.handleSubmit(onSubmit)}
             className="space-y-8 bg-gray-100 p-10 rounded-lg"
         >
-        
+            <DetailsSection />
         </form>        
     </Form>
   )
