@@ -2,6 +2,8 @@
 import { Form } from "@/components/ui/form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import DetailsSection from "./DetailsSection";
+import { useForm } from "react-hook-form";
 
 // Define schema for form validation
 const formSchema = z.object({
