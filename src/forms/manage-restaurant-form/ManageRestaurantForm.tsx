@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import DetailsSection from "./DetailsSection";
 import { useForm } from "react-hook-form";
+import { Separator } from "@/components/ui/separator";
 
 // Define schema for form validation
 const formSchema = z.object({
