@@ -32,7 +32,7 @@ const formSchema = z.object({
     imageFile: z.instanceof(File, { message: "Image is required" }) 
 });
 
-type restaurantFormData = z.infer<typeof formSchema>;
+type RestaurantFormData = z.infer<typeof formSchema>;
 
 // Type definition for the component's props
 type Props = {
@@ -42,7 +42,7 @@ type Props = {
 
 // Component for managing the restaurant form
 const ManageRestaurantForm = ({ onSave, isLoading }: Props) => {
-  const form = useForm<restaurantFormData>({
+  const form = useForm<RestaurantFormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
         cuisines: [],
@@ -50,7 +50,7 @@ const ManageRestaurantForm = ({ onSave, isLoading }: Props) => {
     },
   });
 
-  const onSubmit = (formDataJson: restaurantFormData) => {
+  const onSubmit = (formDataJson: RestaurantFormData) => {
     // TODO - convert formDataJson to a new FormData object
   };
 
