@@ -7,6 +7,9 @@ import { useForm } from "react-hook-form";
 import { Separator } from "@/components/ui/separator";
 import CuisinesSection from "./CuisinesSection";
 import MenuSection from "./MenuSection";
+import ImageSection from "./ImageSection";
+import LoadingButton from "@/components/LoadingButton";
+import { Button } from "@/components/ui/button";
 
 // Define schema for form validation
 const formSchema = z.object({
@@ -64,6 +67,7 @@ const ManageRestaurantForm = ({ onSave, isLoading }: Props) => {
             <MenuSection />
             <Separator />
             <ImageSection />
+            {isLoading ? <LoadingButton /> : <Button type="submit">Submit</Button>}
         </form>        
     </Form>
   )
