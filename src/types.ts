@@ -1,5 +1,3 @@
-import { StringValidation } from "zod";
-
 export type User = {
     _id: string;
     email: string;
