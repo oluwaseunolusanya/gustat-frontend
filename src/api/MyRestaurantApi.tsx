@@ -1,3 +1,4 @@
+import { Restaurant } from "@/types";
 import { useAuth0 } from "@auth0/auth0-react";  // Hook for authentication
 import { useMutation } from "react-query";      // Query hook for API mutation
 import { toast } from "sonner";                 // Notifications
@@ -9,7 +10,9 @@ export const useCreateMyRestaurant = () => {
     const { getAccessTokenSilently } = useAuth0();
 
     // Post restaurant data to the API
-    const useCreateMyRestaurant = async (restaurantFormData: FormData) => {
+    const useCreateMyRestaurant = async (
+        restaurantFormData: FormData
+    ) : Promise<Restaurant> => {
         const accessToken = await getAccessTokenSilently();
 
         const response = await fetch(`${API_BASE_URL}/api/my/restaurant`, {
