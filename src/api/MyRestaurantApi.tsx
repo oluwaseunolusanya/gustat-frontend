@@ -5,6 +5,26 @@ import { toast } from "sonner";                 // Notifications
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
+// Hook to get restaurant data
+export const useGetMyRestaurant = () => {
+    const { getAccessTokenSilently } = useAuth0();
+
+    const useGetMyRestaurantRequest = async (): Promise<Restaurant> => {
+        const accessToken = await getAccessTokenSilently();
+        
+        const response = await fetch(`${API_BASE_URL}/api/my/restaurant`, {
+            method: "GET",
+            headers: {
+                Authorization: `Bearer ${accessToken}`,
+            },
+        });
+
+        if(!response.ok){
+            throw new Error("Failed to get restaurant");
+        };
+    }
+}
+
 // Hook to create a restaurant
 export const useCreateMyRestaurant = () => {
     const { getAccessTokenSilently } = useAuth0();
