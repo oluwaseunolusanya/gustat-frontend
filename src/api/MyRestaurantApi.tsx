@@ -1,7 +1,7 @@
 import { Restaurant } from "@/types";
-import { useAuth0 } from "@auth0/auth0-react";  // Hook for authentication
-import { useMutation } from "react-query";      // Query hook for API mutation
-import { toast } from "sonner";                 // Notifications
+import { useAuth0 } from "@auth0/auth0-react";            // Hook for authentication
+import { useMutation, useQuery } from "react-query";      // Query hook for API mutation
+import { toast } from "sonner";                           // Notifications
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
@@ -9,7 +9,7 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 export const useGetMyRestaurant = () => {
     const { getAccessTokenSilently } = useAuth0();
 
-    const useGetMyRestaurantRequest = async (): Promise<Restaurant> => {
+    const getMyRestaurantRequest = async (): Promise<Restaurant> => {
         const accessToken = await getAccessTokenSilently();
         
         const response = await fetch(`${API_BASE_URL}/api/my/restaurant`, {
@@ -22,8 +22,16 @@ export const useGetMyRestaurant = () => {
         if(!response.ok){
             throw new Error("Failed to get restaurant");
         };
-    }
-}
+        return response.json();
+    };
+
+    const { data: restaurant, isLoading } = useQuery(
+        "fetchMyRestaurant",
+        getMyRestaurantRequest
+    );
+
+    return { restaurant, isLoading };
+};
 
 // Hook to create a restaurant
 export const useCreateMyRestaurant = () => {
