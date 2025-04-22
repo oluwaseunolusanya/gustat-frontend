@@ -91,7 +91,7 @@ yarn lint
 ---
 
 ## Project Structure
-plaintext
+```cmd
 gustat-frontend/
 ├── public/             # Static files
 ├── src/
@@ -107,7 +107,7 @@ gustat-frontend/
 ├── vite.config.ts      # Vite config
 ├── package.json        # Project metadata
 └── README.md           # Project overview
-
+```
 ---
 
 ## Contributing
