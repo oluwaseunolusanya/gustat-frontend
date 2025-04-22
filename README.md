@@ -60,8 +60,7 @@ cd gustat-frontend
 npm install
 # or
 yarn install
-
----
+```
 
 ### Running the Development Server
 
@@ -69,10 +68,9 @@ yarn install
 npm run dev
 # or
 yarn dev
+```
 
 - The app will be available at http://localhost:5173.
-
----
 
 ### Building for Production
 
@@ -80,8 +78,7 @@ yarn dev
 npm run build
 # or
 yarn build
-
----
+```
 
 ### Linting
 
@@ -89,6 +86,7 @@ yarn build
 npm run lint
 # or
 yarn lint
+```
 
 ---
 
