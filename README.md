@@ -84,7 +84,7 @@ npm run lint
 # or
 yarn lint
 
-### Project Structure
+## Project Structure
 plaintext
 gustat-frontend/
 ├── public/             # Static files
@@ -102,7 +102,7 @@ gustat-frontend/
 ├── package.json        # Project metadata
 └── README.md           # Project overview
 
-### Contributing
+## Contributing
 Contributions are welcome!
 
 Fork this repository.
@@ -117,5 +117,5 @@ Open a Pull Request.
 
 Please use conventional commit messages and ensure linting passes.
 
-### License
+## License
 Distributed under the MIT License.
