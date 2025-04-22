@@ -61,6 +61,8 @@ npm install
 # or
 yarn install
 
+---
+
 ### Running the Development Server
 
 ```bash
@@ -70,6 +72,8 @@ yarn dev
 
 - The app will be available at http://localhost:5173.
 
+---
+
 ### Building for Production
 
 ```bash
@@ -77,12 +81,16 @@ npm run build
 # or
 yarn build
 
+---
+
 ### Linting
 
 ```bash
 npm run lint
 # or
 yarn lint
+
+---
 
 ## Project Structure
 plaintext
@@ -102,6 +110,8 @@ gustat-frontend/
 ├── package.json        # Project metadata
 └── README.md           # Project overview
 
+---
+
 ## Contributing
 Contributions are welcome!
 
@@ -116,6 +126,8 @@ Push to the branch (git push origin feature/your-feature).
 Open a Pull Request.
 
 Please use conventional commit messages and ensure linting passes.
+
+---
 
 ## License
 Distributed under the MIT License.
